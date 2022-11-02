@@ -1,7 +1,8 @@
 [alias]
 r = "run"
 
-[target.'cfg(all())']
-rustflags = [
-  "-C", "link-arg=-rdynamic",
-]
+[target.'cfg(unix)']
+rustflags = [ "-C", "link-arg=-rdynamic"]
+
+[target.'cfg(windows)']
+rustflags = [ "-C", "link-arg=-Wl,--export-all-symbols"]
