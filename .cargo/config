@@ -1,2 +1,7 @@
-[build]
-rustflags = ["-C", "link-args=-rdynamic"]
+[alias]
+r = "run"
+
+[target.'cfg(all())']
+rustflags = [
+  "-C", "link-arg=-rdynamic",
+]
